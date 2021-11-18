@@ -5,7 +5,7 @@ import TodoList from './TodoList';
 const Todos = () => {
     return (
         <div className="main">
-            <h2>Things to do... <span>👀</span></h2>
+            <h2>Things &nbsp; to&nbsp; do...&nbsp;&nbsp;<span>👀</span></h2>
             <TodoInput />
             <TodoList/> 
         </div>
