@@ -1,8 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { remove, toggle } from '../store/modules/todos';
+import { CounterState, remove, toggle } from '../store/modules/todos';
 
-const TodoItem = ({todo}) => {
+
+
+const TodoItem = (todo : any) => {
     const {id, text, isChecked} = todo
     const dispatch = useDispatch()
     return (

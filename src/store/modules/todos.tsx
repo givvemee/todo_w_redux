@@ -1,20 +1,20 @@
 // 필요한 것 - 리스트 추가, 리스트 제거, 리스트 토글, 리스트 입력
 
 // 액션 생성
-const ADDONE = 'todos/ADDONE';
-const REMOVE = 'todos/REMOVE';
-const TOGGLE = 'todos/TOGGLE';
-const INPUTS = 'todos/INPUTS';
+const ADDONE = 'todos/ADDONE' as const;
+const REMOVE = 'todos/REMOVE' as const;
+const TOGGLE = 'todos/TOGGLE' as const;
+const INPUTS = 'todos/INPUTS' as const;
 
 // 액션 함수 내보내기
-export const addone = (text) => ({type: ADDONE, text})
-export const remove = id => ({type: REMOVE, id: id})
-export const toggle = id => ({type: TOGGLE, id})
-export const inputs = (text) => ({type: INPUTS, text})
+export const addone = (text: string ) => ({type: ADDONE, text})
+export const remove = (id : number ) => ({type: REMOVE, id: id})
+export const toggle = (id : number ) => ({type: TOGGLE, id})
+export const inputs = (text: string) => ({type: INPUTS, text})
 
 // 초깃값 설정
 let no = 4;
-const initialState = {
+const initialState: CounterState = {
     text: '',
     todos: 
     [
@@ -23,9 +23,18 @@ const initialState = {
         {id: 3, text: 'study typescript', isChecked: false}
     ]
 }
+type CounterAction = 
+    | ReturnType<typeof addone>
+    | ReturnType<typeof remove>
+    | ReturnType<typeof toggle>
+    | ReturnType<typeof inputs>;
 
+export interface CounterState {
+    text: string,
+    todos: {id: number, text: string, isChecked: boolean}[]
+}
 // 리듀서 생성
-const reducer = (state = initialState, action) => {
+const reducer = (state : CounterState = initialState, action: CounterAction) : CounterState => {
     switch (action.type) {
         case ADDONE: 
             return {

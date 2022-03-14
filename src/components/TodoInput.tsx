@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { RootState } from '../store';
 import { addone, inputs } from '../store/modules/todos';
 
 const TodoInput = () => {
-    const text = useSelector(state => state.todos.text)
+    const text = useSelector((state : RootState) => state.todos.text)
     const dispatch = useDispatch()
-    const onSubmit = e => {
+    const onSubmit = (e : React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         dispatch(addone(text))
         dispatch(inputs(''))
