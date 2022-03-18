@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 import TodoItem from './TodoItem';
 
-export interface todo {
-    key?: number,
-    id: number,
-    text: string,
-    isChecked: boolean
-}
+// export interface todo {
+//     key?: number,
+//     id: number,
+//     text: string,
+//     isChecked: boolean
+// }
 
 const TodoList = () => {
     const todos = useSelector((state : RootState) => state.todos.todos)
