@@ -4,7 +4,6 @@ import { CounterState, remove, toggle } from '../store/modules/todos';
 
 // import { todo } from './TodoList';
 
-
 const TodoItem = (todo ) => {
     const {id, text, isChecked} = todo
     const dispatch = useDispatch()
